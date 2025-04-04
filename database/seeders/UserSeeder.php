@@ -28,7 +28,8 @@ class UserSeeder extends Seeder
                 'mobile_number' => '+1234567890',
                 'weight' => 75.5,
                 'height' => 175.0,
-                'gender' => 'male'
+                'gender' => 'male',
+                'bmi' => 24.7
             ],
             [
                 'full_name' => 'Jane Smith',
@@ -38,7 +39,8 @@ class UserSeeder extends Seeder
                 'mobile_number' => '+1987654321',
                 'weight' => 62.0,
                 'height' => 165.0,
-                'gender' => 'female'
+                'gender' => 'female',
+                'bmi' => 22.8
             ],
             [
                 'full_name' => 'Mike Johnson',
@@ -48,7 +50,8 @@ class UserSeeder extends Seeder
                 'mobile_number' => '+1122334455',
                 'weight' => 85.0,
                 'height' => 180.0,
-                'gender' => 'male'
+                'gender' => 'male',
+                'bmi' => 26.2
             ]
         ];
 

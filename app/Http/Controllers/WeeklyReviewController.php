@@ -9,6 +9,7 @@ class WeeklyReviewController extends Controller
 {
     public function getWeeklyReview()
 {
+
     $user = auth()->user()->load('goals'); // Eager load the user goals
     // dd($user->goals);
 
@@ -24,6 +25,10 @@ class WeeklyReviewController extends Controller
         ->whereBetween('log_date', [$startDate, $endDate])
         ->get();
 
+    $today = DailyLog::where('user_id', auth()->id())
+        ->whereDate('log_date', $endDate)
+        ->first();
+
     $totalCaloriesConsumed = $weeklyLogs->sum('calories_consumed');
     $totalCaloriesBurned = $weeklyLogs->sum('calories_burned');
     $totalSteps = $weeklyLogs->sum('steps_taken');
@@ -37,9 +42,12 @@ class WeeklyReviewController extends Controller
     return response()->json([
         'total_calories_consumed' => $totalCaloriesConsumed,
         'total_calories_burned' => $totalCaloriesBurned,
+        'today_calories_burned' => $today?->calories_burned ?? 0,
+        'today_steps_taken' => $today?->steps_taken ?? 0,
         'total_steps' => $totalSteps,
         'daily_logs' => $weeklyLogs,
-        'insights' => $insights
+        'insights' => $insights,
+        'endDate' => $endDate
     ]);
 }
 

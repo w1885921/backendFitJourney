@@ -40,7 +40,7 @@ class GoalController extends Controller
     {
         $age = $this->calculateAge($user->date_of_birth);
     
-        // Base BMR calculation using Mifflin-St Jeor Equation
+        // Base BMR calculation using Harris-Benedict Equation
         $bmr = ($user->gender === 'male')
             ? 88.362 + (13.397 * $user->weight) + (4.799 * $user->height) - (5.677 * $age)
             : 447.593 + (9.247 * $user->weight) + (3.098 * $user->height) - (4.330 * $age);

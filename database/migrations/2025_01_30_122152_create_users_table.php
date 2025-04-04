@@ -23,6 +23,9 @@ return new class extends Migration
             $table->decimal('weight', 5, 2)->nullable();
             $table->decimal('height', 5, 2)->nullable();
             $table->string('gender')->nullable();
+            $table->decimal('bmi')->nullable();
+            $table->string('verification_code')->nullable();
+            $table->boolean('is_verified')->default(false);
             $table->timestamps();
         });
     }

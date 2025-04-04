@@ -25,7 +25,10 @@ class User extends Authenticatable
         'mobile_number',
         'weight',
         'height',
-        'gender'
+        'gender',
+        'bmi',
+        "verification_code",
+        "is_verified"
     ];
 
     protected $hidden = [
